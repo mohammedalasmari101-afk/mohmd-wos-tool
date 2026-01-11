@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MOHMD • WoS Whale Analyzer</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div class="bgGlow"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="brandMark"></div>
+      <div>
+        <div class="brandTitle">MOHMD</div>
+        <div class="brandSub" data-i18n="app.subtitle">Whiteout Survival Whale Analyzer</div>
+      </div>
+    </div>
+
+    <div class="topbarActions">
+      <button id="langBtn" class="btn btnGhost" type="button">
+        <span class="pill" id="langPill">EN</span>
+        <span data-i18n="app.language">Language</span>
+      </button>
+      <a class="btn btnPrimary" href="#roi" data-i18n="nav.goToRoi">Go to ROI</a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="card hero">
+      <div class="heroLeft">
+        <div class="kicker" data-i18n="hero.kicker">PvP Wars Mode</div>
+        <h1 class="h1" data-i18n="hero.title">Spend smarter. Stop wasting packs.</h1>
+        <p class="muted" data-i18n="hero.desc">
+          This tool ranks packs by ROI and flags dead spending (capped systems). Built for whales.
+        </p>
+
+        <div class="heroStats">
+          <div class="stat">
+            <div class="statLabel" data-i18n="hero.stat1">Mode</div>
+            <div class="statValue" id="modeValue">PvP Wars</div>
+          </div>
+          <div class="stat">
+            <div class="statLabel" data-i18n="hero.stat2">Focus</div>
+            <div class="statValue" id="focusValue">Lancer</div>
+          </div>
+          <div class="stat">
+            <div class="statLabel" data-i18n="hero.stat3">Currency</div>
+            <div class="statValue" id="currencyValue">USD</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="heroRight">
+        <div class="panel">
+          <div class="panelTitle" data-i18n="account.quick">Quick Account Flags</div>
+
+          <div class="toggleRow">
+            <label class="toggle">
+              <input id="chiefGearMaxed" type="checkbox" checked />
+              <span class="slider"></span>
+            </label>
+            <div class="toggleText">
+              <div class="toggleTitle" data-i18n="flags.chiefGear">Chief Gear maxed</div>
+              <div class="toggleHint" data-i18n="flags.chiefGearHint">Auto-block Chief Gear pack recommendations</div>
+            </div>
+          </div>
+
+          <div class="toggleRow">
+            <label class="toggle">
+              <input id="charmsMaxed" type="checkbox" checked />
+              <span class="slider"></span>
+            </label>
+            <div class="toggleText">
+              <div class="toggleTitle" data-i18n="flags.charms">Charms maxed</div>
+              <div class="toggleHint" data-i18n="flags.charmsHint">Auto-block Charm pack recommendations</div>
+            </div>
+          </div>
+
+          <div class="toggleRow">
+            <label class="toggle">
+              <input id="heroSkillsMaxed" type="checkbox" checked />
+              <span class="slider"></span>
+            </label>
+            <div class="toggleText">
+              <div class="toggleTitle" data-i18n="flags.heroSkills">Main hero skills maxed</div>
+              <div class="toggleHint" data-i18n="flags.heroSkillsHint">Auto-block skill book recommendations</div>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="row">
+            <label class="label" data-i18n="account.currency">Currency</label>
+            <select id="currencySelect" class="select">
+              <option value="USD">USD</option>
+              <option value="SAR">SAR</option>
+            </select>
+          </div>
+
+          <div class="row">
+            <label class="label" data-i18n="account.fx">USD→SAR rate</label>
+            <input id="fxInput" class="input" type="number" step="0.01" value="3.75" />
+          </div>
+
+          <div class="row">
+            <label class="label" data-i18n="account.budget">Budget</label>
+            <input id="budgetInput" class="input" type="number" step="1" value="100" />
+          </div>
+
+          <button id="runBtn" class="btn btnPrimary full" type="button" data-i18n="actions.run">
+            Run ROI Analysis
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="roi" class="card">
+      <div class="cardHeader">
+        <div>
+          <div class="kicker" data-i18n="roi.kicker">Packs</div>
+          <h2 class="h2" data-i18n="roi.title">ROI Ranking</h2>
+          <p class="muted" data-i18n="roi.desc">
+            V1 ranks by resource-per-cost and applies cap rules. Next step: convert resources → PvP % gains using your Expert levels.
+          </p>
+        </div>
+        <div class="chipRow">
+          <span class="chip" id="chipChiefGear" data-i18n="chips.chiefGear">Chief Gear: MAXED</span>
+          <span class="chip" id="chipCharms" data-i18n="chips.charms">Charms: MAXED</span>
+          <span class="chip" id="chipHeroSkills" data-i18n="chips.heroSkills">Hero Skills: MAXED</span>
+        </div>
+      </div>
+
+      <div class="tableWrap">
+        <table class="table" id="roiTable">
+          <thead>
+            <tr>
+              <th data-i18n="table.pack">Pack</th>
+              <th data-i18n="table.price">Price</th>
+              <th data-i18n="table.contents">Key Contents</th>
+              <th data-i18n="table.roi">ROI Score</th>
+              <th data-i18n="table.verdict">Verdict</th>
+            </tr>
+          </thead>
+          <tbody id="roiBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="footer">
+      <div class="mutedSmall" data-i18n="footer.note">
+        MOHMD • GitHub Pages MVP • Next: Expert-level math + full pack database + account import.
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+{
+  "category": "expert",
+  "packs": [
+    {
+      "id": "expert_mark_9_99",
+      "name_en": "Expert Mark Pack (5,000 Gems)",
+      "name_ar": "حزمة علامات الخبير (٥,٠٠٠ جواهر)",
+      "price_usd": 9.99,
+      "gems": 5000,
+      "contents": {
+        "expert_mark": 16
+      },
+      "tags": ["expert", "marks"]
+    },
+    {
+      "id": "expert_gift_9_99",
+      "name_en": "Expert Gift Set (5,000 Gems)",
+      "name_ar": "مجموعة هدايا الخبير (٥,٠٠٠ جواهر)",
+      "price_usd": 9.99,
+      "gems": 5000,
+      "contents": {
+        "expert_gift": 16
+      },
+      "tags": ["expert", "gift"]
+    },
+    {
+      "id": "expert_skill_9_99",
+      "name_en": "Expert Skill Pack (5,000 Gems)",
+      "name_ar": "حزمة مهارات الخبير (٥,٠٠٠ جواهر)",
+      "price_usd": 9.99,
+      "gems": 5000,
+      "contents": {
+        "expert_skill_book": 1000,
+        "speedup_hours": 16
+      },
+      "tags": ["expert", "skills"]
+    },
+
+    {
+      "id": "expert_mark_19_99",
+      "name_en": "Expert Mark Pack (10,000 Gems)",
+      "name_ar": "حزمة علامات الخبير (١٠,٠٠٠ جواهر)",
+      "price_usd": 19.99,
+      "gems": 10000,
+      "contents": {
+        "expert_mark": 32
+      },
+      "tags": ["expert", "marks"]
+    },
+    {
+      "id": "expert_gift_19_99",
+      "name_en": "Expert Gift Set (10,000 Gems)",
+      "name_ar": "مجموعة هدايا الخبير (١٠,٠٠٠ جواهر)",
+      "price_usd": 19.99,
+      "gems": 10000,
+      "contents": {
+        "expert_gift": 32
+      },
+      "tags": ["expert", "gift"]
+    },
+    {
+      "id": "expert_skill_19_99",
+      "name_en": "Expert Skill Pack (10,000 Gems)",
+      "name_ar": "حزمة مهارات الخبير (١٠,٠٠٠ جواهر)",
+      "price_usd": 19.99,
+      "gems": 10000,
+      "contents": {
+        "expert_skill_book": 2000,
+        "speedup_hours": 32
+      },
+      "tags": ["expert", "skills"]
+    },
+
+    {
+      "id": "expert_mark_49_99",
+      "name_en": "Expert Mark Pack (25,000 Gems)",
+      "name_ar": "حزمة علامات الخبير (٢٥,٠٠٠ جواهر)",
+      "price_usd": 49.99,
+      "gems": 25000,
+      "contents": {
+        "expert_mark": 80
+      },
+      "tags": ["expert", "marks"]
+    },
+    {
+      "id": "expert_gift_49_99",
+      "name_en": "Expert Gift Set (25,000 Gems)",
+      "name_ar": "مجموعة هدايا الخبير (٢٥,٠٠٠ جواهر)",
+      "price_usd": 49.99,
+      "gems": 25000,
+      "contents": {
+        "expert_gift": 80
+      },
+      "tags": ["expert", "gift"]
+    },
+    {
+      "id": "expert_skill_49_99",
+      "name_en": "Expert Skill Pack (25,000 Gems)",
+      "name_ar": "حزمة مهارات الخبير (٢٥,٠٠٠ جواهر)",
+      "price_usd": 49.99,
+      "gems": 25000,
+      "contents": {
+        "expert_skill_book": 5000,
+        "speedup_hours": 80
+      },
+      "tags": ["expert", "skills"]
+    },
+
+    {
+      "id": "expert_mark_99_99",
+      "name_en": "Expert Mark Pack (50,000 Gems)",
+      "name_ar": "حزمة علامات الخبير (٥٠,٠٠٠ جواهر)",
+      "price_usd": 99.99,
+      "gems": 50000,
+      "contents": {
+        "expert_mark": 160
+      },
+      "tags": ["expert", "marks"]
+    },
+    {
+      "id": "expert_gift_99_99",
+      "name_en": "Expert Gift Set (50,000 Gems)",
+      "name_ar": "مجموعة هدايا الخبير (٥٠,٠٠٠ جواهر)",
+      "price_usd": 99.99,
+      "gems": 50000,
+      "contents": {
+        "expert_gift": 160
+      },
+      "tags": ["expert", "gift"]
+    },
+    {
+      "id": "expert_skill_99_99",
+      "name_en": "Expert Skill Pack (50,000 Gems)",
+      "name_ar": "حزمة مهارات الخبير (٥٠,٠٠٠ جواهر)",
+      "price_usd": 99.99,
+      "gems": 50000,
+      "contents": {
+        "expert_skill_book": 10000,
+        "speedup_hours": 160
+      },
+      "tags": ["expert", "skills"]
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "en": {
+    "app.subtitle": "Whiteout Survival Whale Analyzer",
+    "app.language": "Language",
+    "nav.goToRoi": "Go to ROI",
+
+    "hero.kicker": "PvP Wars Mode",
+    "hero.title": "Spend smarter. Stop wasting packs.",
+    "hero.desc": "This tool ranks packs by ROI and flags dead spending (capped systems). Built for whales.",
+    "hero.stat1": "Mode",
+    "hero.stat2": "Focus",
+    "hero.stat3": "Currency",
+
+    "account.quick": "Quick Account Flags",
+    "flags.chiefGear": "Chief Gear maxed",
+    "flags.chiefGearHint": "Auto-block Chief Gear pack recommendations",
+    "flags.charms": "Charms maxed",
+    "flags.charmsHint": "Auto-block Charm pack recommendations",
+    "flags.heroSkills": "Main hero skills maxed",
+    "flags.heroSkillsHint": "Auto-block skill book recommendations",
+
+    "account.currency": "Currency",
+    "account.fx": "USD→SAR rate",
+    "account.budget": "Budget",
+    "actions.run": "Run ROI Analysis",
+
+    "roi.kicker": "Packs",
+    "roi.title": "ROI Ranking",
+    "roi.desc": "V1 ranks by resource-per-cost and applies cap rules. Next step: convert resources → PvP % gains using your Expert levels.",
+
+    "chips.chiefGear": "Chief Gear: MAXED",
+    "chips.charms": "Charms: MAXED",
+    "chips.heroSkills": "Hero Skills: MAXED",
+
+    "table.pack": "Pack",
+    "table.price": "Price",
+    "table.contents": "Key Contents",
+    "table.roi": "ROI Score",
+    "table.verdict": "Verdict",
+
+    "footer.note": "MOHMD • GitHub Pages MVP • Next: Expert-level math + full pack database + account import."
+  },
+  "ar": {
+    "app.subtitle": "محلل حسابات الحيتان للعبة وايت أوت سيرفايفل",
+    "app.language": "اللغة",
+    "nav.goToRoi": "اذهب للـ ROI",
+
+    "hero.kicker": "وضع حروب PvP",
+    "hero.title": "اصرف بذكاء. لا تضيّع باقاتك.",
+    "hero.desc": "الأداة ترتّب الباقات حسب العائد وتمنع الشراء الخاطئ عند الوصول للحدود القصوى. مصممة للحيتان.",
+    "hero.stat1": "الوضع",
+    "hero.stat2": "التركيز",
+    "hero.stat3": "العملة",
+
+    "account.quick": "مؤشرات سريعة للحساب",
+    "flags.chiefGear": "معدات الزعيم مكتملة",
+    "flags.chiefGearHint": "إيقاف توصيات باقات معدات الزعيم تلقائياً",
+    "flags.charms": "التعاويذ مكتملة",
+    "flags.charmsHint": "إيقاف توصيات باقات التعاويذ تلقائياً",
+    "flags.heroSkills": "مهارات الأبطال الأساسيين مكتملة",
+    "flags.heroSkillsHint": "إيقاف توصيات كتب المهارات تلقائياً",
+
+    "account.currency": "العملة",
+    "account.fx": "سعر تحويل USD→SAR",
+    "account.budget": "الميزانية",
+    "actions.run": "تشغيل التحليل",
+
+    "roi.kicker": "الباقات",
+    "roi.title": "ترتيب العائد (ROI)",
+    "roi.desc": "الإصدار الأول يرتّب حسب الموارد مقابل السعر ويطبّق قواعد الإيقاف عند الاكتمال. الخطوة التالية: تحويل الموارد إلى زيادة فعلية في PvP حسب مستوى الخبير لديك.",
+
+    "chips.chiefGear": "معدات الزعيم: مكتملة",
+    "chips.charms": "التعاويذ: مكتملة",
+    "chips.heroSkills": "مهارات الأبطال: مكتملة",
+
+    "table.pack": "الباقة",
+    "table.price": "السعر",
+    "table.contents": "أهم المحتويات",
+    "table.roi": "نقاط ROI",
+    "table.verdict": "القرار",
+
+    "footer.note": "MOHMD • نسخة GitHub Pages • القادم: معادلات الخبير + قاعدة باقات كاملة + إدخال بيانات الحساب."
+  }
+}
