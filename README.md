@@ -10,7 +10,7 @@
 ![version](https://img.shields.io/badge/version-v1.0.0-brightgreen)
 ![focus](https://img.shields.io/badge/focus-PvP%20Wars-red)
 ![language](https://img.shields.io/badge/language-EN%20%7C%20AR-blue)
-![license](https://img.shields.io/badge/license-MIT-lightgrey)
+![license]()
 
 </div>
 
@@ -51,7 +51,8 @@ This tool focuses on **real PvP combat effectiveness**, not inflated power numbe
 ---
 
 ### 🚀 Live Demo
-👉 **GitHub Pages:**  
+🌐 **GitHub Pages:**  
+👉 https://mohammedalasmari101-afk.github.io/mohmd-wos-tool/#roi
 
 ---
 
