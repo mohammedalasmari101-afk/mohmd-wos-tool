@@ -104,14 +104,17 @@ This tool focuses on **real PvP combat effectiveness**, not inflated power numbe
 ---
 
 ## 📁 Project Structure
+
+```text
 mohmd-wos-tool/
-├── index.html
-├── style.css
-├── script.js
+├── index.html        # Main entry point
+├── style.css         # Global styles (dark / neon theme)
+├── script.js         # Core logic (PvP analysis engine)
 ├── data/
-│ ├── i18n.json
-│ └── packs.expert.json
-└── README.md
+│   ├── i18n.json     # EN / AR translations
+│   └── packs.expert.json  # Expert pack database
+└── README.md         # Project documentation
+
 ---
 
 ## ⚠️ Disclaimer
