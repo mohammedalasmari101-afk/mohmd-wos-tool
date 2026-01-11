@@ -19,6 +19,24 @@
     "flags.heroSkills": "Main hero skills maxed",
     "flags.heroSkillsHint": "Auto-block skill book recommendations",
 
+    "account.stats": "Account PvP Stats (Option B)",
+    "account.statsHint": "Enter % values exactly like the game screens (e.g., 84.5). Leave empty = 0.",
+    "account.mainType": "Main troop type",
+    "account.auto": "Auto-detect",
+
+    "type.infantry": "Infantry",
+    "type.lancer": "Lancer",
+    "type.marksman": "Marksman",
+
+    "stats.troops": "Troops (All)",
+    "stats.atk": "Attack %",
+    "stats.def": "Defense %",
+    "stats.leth": "Lethality %",
+    "stats.hp": "Health %",
+    "stats.deploy": "Deployment",
+
+    "detect.result": "Detected Main Type",
+
     "account.currency": "Currency",
     "account.fx": "USD→SAR rate",
     "account.budget": "Budget",
@@ -59,6 +77,24 @@
     "flags.charmsHint": "إيقاف توصيات باقات التعاويذ تلقائياً",
     "flags.heroSkills": "مهارات الأبطال الأساسيين مكتملة",
     "flags.heroSkillsHint": "إيقاف توصيات كتب المهارات تلقائياً",
+
+    "account.stats": "إحصائيات PvP للحساب (الخيار B)",
+    "account.statsHint": "اكتب النسب مثل ما هي في اللعبة (مثال 84.5). إذا تركتها فارغة = 0.",
+    "account.mainType": "نوع الجيش الأساسي",
+    "account.auto": "تحديد تلقائي",
+
+    "type.infantry": "مشاة",
+    "type.lancer": "رماح",
+    "type.marksman": "رماة",
+
+    "stats.troops": "القوات (عام)",
+    "stats.atk": "الهجوم %",
+    "stats.def": "الدفاع %",
+    "stats.leth": "الفتك %",
+    "stats.hp": "الصحة %",
+    "stats.deploy": "سعة الإرسال",
+
+    "detect.result": "النوع المكتشف",
 
     "account.currency": "العملة",
     "account.fx": "سعر تحويل USD→SAR",

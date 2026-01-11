@@ -9,6 +9,14 @@ const state = {
     charmsMaxed: true,
     heroSkillsMaxed: true,
   },
+  account: {
+    mainType: "auto", // auto | infantry | lancer | marksman
+    detectedType: null,
+    troops: { atk:0, def:0, leth:0, hp:0, deploy:0 },
+    infantry: { atk:0, def:0, leth:0, hp:0 },
+    lancer: { atk:0, def:0, leth:0, hp:0 },
+    marksman: { atk:0, def:0, leth:0, hp:0 },
+  },
   packs: []
 };
 
@@ -32,12 +40,14 @@ function applyLang(){
 
   $("langPill").textContent = isAr ? "AR" : "EN";
 
-  // translate all [data-i18n]
   document.querySelectorAll("[data-i18n]").forEach(el => {
     const key = el.getAttribute("data-i18n");
     const t = I18N?.[lang]?.[key];
     if(typeof t === "string") el.textContent = t;
   });
+
+  // update detected label language
+  updateDetectedTypeUI();
 }
 
 function fmtMoney(usd){
@@ -65,11 +75,10 @@ function summarizeContents(contents){
 }
 
 /**
- * V1 ROI score:
+ * V1 ROI score (placeholder):
  * - Primary: Expert Marks per USD (big weight)
  * - Secondary: Skill books per USD (smaller weight)
- * - Speedups per USD (tiny weight, PvP wars still cares but less)
- * This is a placeholder until we plug Expert-level → PvP % gain.
+ * - Speedups per USD (tiny weight)
  */
 function roiScore(pack){
   const c = pack.contents || {};
@@ -82,18 +91,15 @@ function roiScore(pack){
   const booksPer$ = books / usd;
   const hrsPer$ = hrs / usd;
 
-  // weights tuned for PvP wars:
   return (marksPer$ * 1000) + (booksPer$ * 0.8) + (hrsPer$ * 5);
 }
 
 function verdictFor(pack){
-  // cap rules (v1 only uses user toggles; later will use real level caps)
   const tags = pack.tags || [];
 
   if(tags.includes("chiefGear") && state.flags.chiefGearMaxed) return { type:"bad", key:"CAPPED" };
   if(tags.includes("charms") && state.flags.charmsMaxed) return { type:"bad", key:"CAPPED" };
 
-  // If user says hero skills maxed, mark skill-heavy packs as situational/waste:
   const books = Number(pack.contents?.expert_skill_book || 0);
   const marks = Number(pack.contents?.expert_mark || 0);
 
@@ -159,6 +165,112 @@ function renderTable(){
   }
 }
 
+/* ---------------------------
+   Option B: Manual Stats Input
+---------------------------- */
+
+function numVal(id){
+  const el = $(id);
+  if(!el) return 0;
+  const v = Number(el.value);
+  return Number.isFinite(v) ? v : 0;
+}
+
+function readAccountFromUI(){
+  state.account.mainType = $("mainTypeSelect")?.value || "auto";
+
+  state.account.troops.atk = numVal("troopsAtk");
+  state.account.troops.def = numVal("troopsDef");
+  state.account.troops.leth = numVal("troopsLeth");
+  state.account.troops.hp = numVal("troopsHp");
+  state.account.troops.deploy = numVal("troopsDeploy");
+
+  state.account.infantry.atk = numVal("infAtk");
+  state.account.infantry.def = numVal("infDef");
+  state.account.infantry.leth = numVal("infLeth");
+  state.account.infantry.hp = numVal("infHp");
+
+  state.account.lancer.atk = numVal("lanAtk");
+  state.account.lancer.def = numVal("lanDef");
+  state.account.lancer.leth = numVal("lanLeth");
+  state.account.lancer.hp = numVal("lanHp");
+
+  state.account.marksman.atk = numVal("markAtk");
+  state.account.marksman.def = numVal("markDef");
+  state.account.marksman.leth = numVal("markLeth");
+  state.account.marksman.hp = numVal("markHp");
+}
+
+function scoreType(typeStats){
+  // Simple: add the 4 % stats (you can later weight these)
+  return (typeStats.atk || 0) + (typeStats.def || 0) + (typeStats.leth || 0) + (typeStats.hp || 0);
+}
+
+function detectMainType(){
+  // If user manually selects, respect it
+  if(state.account.mainType && state.account.mainType !== "auto"){
+    return state.account.mainType;
+  }
+
+  const inf = scoreType(state.account.infantry);
+  const lan = scoreType(state.account.lancer);
+  const mark = scoreType(state.account.marksman);
+
+  let best = "lancer";
+  let bestScore = lan;
+
+  if(inf > bestScore){ best = "infantry"; bestScore = inf; }
+  if(mark > bestScore){ best = "marksman"; bestScore = mark; }
+
+  // If all zero, return null
+  if(inf === 0 && lan === 0 && mark === 0) return null;
+
+  return best;
+}
+
+function labelForType(t){
+  const en = { infantry:"Infantry", lancer:"Lancer", marksman:"Marksman" };
+  const ar = { infantry:"مشاة", lancer:"رماح", marksman:"رماة" };
+  if(!t) return "—";
+  return state.lang === "ar" ? (ar[t] || "—") : (en[t] || "—");
+}
+
+function updateDetectedTypeUI(){
+  const t = state.account.detectedType;
+  const label = labelForType(t);
+
+  if($("detectedPill")) $("detectedPill").textContent = label;
+  if($("focusValue")) $("focusValue").textContent = label;
+
+  // Show a little breakdown
+  const inf = scoreType(state.account.infantry);
+  const lan = scoreType(state.account.lancer);
+  const mark = scoreType(state.account.marksman);
+
+  const infoEl = $("detectInfo");
+  if(infoEl){
+    if(!t){
+      infoEl.textContent = state.lang === "ar"
+        ? "أدخل نسب المشاة/الرماح/الرماة لتحديد النوع تلقائياً."
+        : "Enter Infantry/Lancer/Marksman stats to auto-detect.";
+    } else {
+      infoEl.textContent = state.lang === "ar"
+        ? `المجموع — مشاة: ${inf.toFixed(2)} • رماح: ${lan.toFixed(2)} • رماة: ${mark.toFixed(2)}`
+        : `Totals — Infantry: ${inf.toFixed(2)} • Lancer: ${lan.toFixed(2)} • Marksman: ${mark.toFixed(2)}`;
+    }
+  }
+}
+
+function updateDetectedType(){
+  readAccountFromUI();
+  state.account.detectedType = detectMainType();
+  updateDetectedTypeUI();
+}
+
+/* ---------------------------
+   UI sync + events
+---------------------------- */
+
 function syncUItoState(){
   $("chiefGearMaxed").checked = state.flags.chiefGearMaxed;
   $("charmsMaxed").checked = state.flags.charmsMaxed;
@@ -169,6 +281,8 @@ function syncUItoState(){
   $("budgetInput").value = String(state.budget);
 
   $("currencyValue").textContent = state.currency;
+
+  if($("mainTypeSelect")) $("mainTypeSelect").value = state.account.mainType;
 }
 
 function bindEvents(){
@@ -216,7 +330,27 @@ function bindEvents(){
     renderTable();
   });
 
+  // Auto-update detection on any stats input change (fast + user friendly)
+  const statIds = [
+    "mainTypeSelect",
+    "troopsAtk","troopsDef","troopsLeth","troopsHp","troopsDeploy",
+    "infAtk","infDef","infLeth","infHp",
+    "lanAtk","lanDef","lanLeth","lanHp",
+    "markAtk","markDef","markLeth","markHp"
+  ];
+  statIds.forEach(id => {
+    const el = $(id);
+    if(!el) return;
+    el.addEventListener("input", () => {
+      updateDetectedType();
+    });
+    el.addEventListener("change", () => {
+      updateDetectedType();
+    });
+  });
+
   $("runBtn").addEventListener("click", () => {
+    updateDetectedType();
     renderChips();
     renderTable();
     location.hash = "#roi";
@@ -236,6 +370,9 @@ async function init(){
   applyLang();
   renderChips();
   renderTable();
+
+  // first detection render
+  updateDetectedType();
 }
 
 init().catch(err => {

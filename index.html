@@ -44,7 +44,7 @@
           </div>
           <div class="stat">
             <div class="statLabel" data-i18n="hero.stat2">Focus</div>
-            <div class="statValue" id="focusValue">Lancer</div>
+            <div class="statValue" id="focusValue">—</div>
           </div>
           <div class="stat">
             <div class="statLabel" data-i18n="hero.stat3">Currency</div>
@@ -87,6 +87,89 @@
             <div class="toggleText">
               <div class="toggleTitle" data-i18n="flags.heroSkills">Main hero skills maxed</div>
               <div class="toggleHint" data-i18n="flags.heroSkillsHint">Auto-block skill book recommendations</div>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <!-- Option B: Account PvP Stats (manual input) -->
+          <div class="panelTitle" style="margin-top:6px;" data-i18n="account.stats">Account PvP Stats (Option B)</div>
+
+          <div class="row">
+            <label class="label" data-i18n="account.mainType">Main troop type</label>
+            <select id="mainTypeSelect" class="select">
+              <option value="auto" data-i18n="account.auto">Auto-detect</option>
+              <option value="infantry" data-i18n="type.infantry">Infantry</option>
+              <option value="lancer" data-i18n="type.lancer">Lancer</option>
+              <option value="marksman" data-i18n="type.marksman">Marksman</option>
+            </select>
+          </div>
+
+          <div class="miniHint" data-i18n="account.statsHint">
+            Enter % values exactly like the game screens (e.g., 84.5). Leave empty = 0.
+          </div>
+
+          <div class="gridBox">
+            <div class="gridTitle" data-i18n="stats.troops">Troops (All)</div>
+
+            <div class="grid4">
+              <div class="row">
+                <label class="label" data-i18n="stats.atk">Attack %</label>
+                <input id="troopsAtk" class="input" type="number" step="0.01" placeholder="0" />
+              </div>
+              <div class="row">
+                <label class="label" data-i18n="stats.def">Defense %</label>
+                <input id="troopsDef" class="input" type="number" step="0.01" placeholder="0" />
+              </div>
+              <div class="row">
+                <label class="label" data-i18n="stats.leth">Lethality %</label>
+                <input id="troopsLeth" class="input" type="number" step="0.01" placeholder="0" />
+              </div>
+              <div class="row">
+                <label class="label" data-i18n="stats.hp">Health %</label>
+                <input id="troopsHp" class="input" type="number" step="0.01" placeholder="0" />
+              </div>
+            </div>
+
+            <div class="row" style="margin-top:10px;">
+              <label class="label" data-i18n="stats.deploy">Deployment</label>
+              <input id="troopsDeploy" class="input" type="number" step="1" placeholder="0" />
+            </div>
+
+            <div class="detectRow">
+              <span class="mutedSmall" data-i18n="detect.result">Detected Main Type</span>
+              <span class="pill" id="detectedPill">—</span>
+            </div>
+            <div class="mutedSmall" id="detectInfo"></div>
+          </div>
+
+          <div class="gridBox">
+            <div class="gridTitle" data-i18n="type.infantry">Infantry</div>
+            <div class="grid4">
+              <div class="row"><label class="label" data-i18n="stats.atk">Attack %</label><input id="infAtk" class="input" type="number" step="0.01" placeholder="0" /></div>
+              <div class="row"><label class="label" data-i18n="stats.def">Defense %</label><input id="infDef" class="input" type="number" step="0.01" placeholder="0" /></div>
+              <div class="row"><label class="label" data-i18n="stats.leth">Lethality %</label><input id="infLeth" class="input" type="number" step="0.01" placeholder="0" /></div>
+              <div class="row"><label class="label" data-i18n="stats.hp">Health %</label><input id="infHp" class="input" type="number" step="0.01" placeholder="0" /></div>
+            </div>
+          </div>
+
+          <div class="gridBox">
+            <div class="gridTitle" data-i18n="type.lancer">Lancer</div>
+            <div class="grid4">
+              <div class="row"><label class="label" data-i18n="stats.atk">Attack %</label><input id="lanAtk" class="input" type="number" step="0.01" placeholder="0" /></div>
+              <div class="row"><label class="label" data-i18n="stats.def">Defense %</label><input id="lanDef" class="input" type="number" step="0.01" placeholder="0" /></div>
+              <div class="row"><label class="label" data-i18n="stats.leth">Lethality %</label><input id="lanLeth" class="input" type="number" step="0.01" placeholder="0" /></div>
+              <div class="row"><label class="label" data-i18n="stats.hp">Health %</label><input id="lanHp" class="input" type="number" step="0.01" placeholder="0" /></div>
+            </div>
+          </div>
+
+          <div class="gridBox">
+            <div class="gridTitle" data-i18n="type.marksman">Marksman</div>
+            <div class="grid4">
+              <div class="row"><label class="label" data-i18n="stats.atk">Attack %</label><input id="markAtk" class="input" type="number" step="0.01" placeholder="0" /></div>
+              <div class="row"><label class="label" data-i18n="stats.def">Defense %</label><input id="markDef" class="input" type="number" step="0.01" placeholder="0" /></div>
+              <div class="row"><label class="label" data-i18n="stats.leth">Lethality %</label><input id="markLeth" class="input" type="number" step="0.01" placeholder="0" /></div>
+              <div class="row"><label class="label" data-i18n="stats.hp">Health %</label><input id="markHp" class="input" type="number" step="0.01" placeholder="0" /></div>
             </div>
           </div>
 
