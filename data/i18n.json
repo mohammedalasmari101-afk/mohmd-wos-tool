@@ -100,6 +100,9 @@
 
   "report.footer": "MOHMD • Solo calculator MVP • Next: pack → stat deltas + true report breakdown.",
 
+  "nav.soloCalc": "Solo Calculator",
+
+
 
     "footer.note": "MOHMD • GitHub Pages MVP • Next: Expert-level math + full pack database + account import."
   },
@@ -203,6 +206,8 @@
   "report.output.desc": "هذا سنغذّي به محرك ROI لاحقاً (الباقات → زيادة النسب).",
 
   "report.footer": "MOHMD • نسخة حاسبة السولو • القادم: تحويل الباقات إلى زيادات فعلية + تفكيك التقرير الحقيقي.",
+  "nav.soloCalc": "حاسبة تقرير السولو",
+
 
 
     "footer.note": "MOHMD • نسخة GitHub Pages • القادم: معادلات الخبير + قاعدة باقات كاملة + إدخال بيانات الحساب."
