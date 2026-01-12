@@ -53,7 +53,7 @@ This tool focuses on **real PvP combat effectiveness**, not inflated power numbe
 ### 🚀 Live Demo
 🌐 **Live Website**  
 👉 [Open ROI Analyzer](https://mohammedalasmari101-afk.github.io/mohmd-wos-tool/#roi)
-- **Solo Report Calculator:** [Open Solo Calculator](https://mohammedalasmari101-afk.github.io/mohmd-wos-tool/report.html)
+- **Solo Report Calculator:** [Open Solo Calculator](https://mohammedalasmari101-afk.github.io/mohmd-wos-tool/#roi/report.html)
 
 
 ---
