@@ -364,3 +364,70 @@ tr td:last-child{
 html[dir="rtl"] body { font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Tahoma, Arial; }
 html[dir="rtl"] .topbarActions { flex-direction: row-reverse; }
 html[dir="rtl"] th, html[dir="rtl"] td { text-align:right; }
+
+/* ===== Report page extras ===== */
+.formGrid{
+  padding: 16px;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:14px;
+}
+@media (max-width: 920px){
+  .formGrid{ grid-template-columns:1fr; }
+}
+
+.formBlock{
+  border:1px solid var(--line);
+  border-radius: 14px;
+  padding: 14px;
+  background: rgba(7,11,24,.32);
+}
+
+.formTitle{
+  font-weight:900;
+  margin-bottom: 10px;
+  letter-spacing:.02em;
+}
+
+.grid4{
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap:10px;
+}
+@media (min-width: 920px){
+  .grid4{ grid-template-columns: repeat(4, 1fr); }
+}
+
+.typeTabs{
+  display:flex;
+  gap:8px;
+  margin: 10px 0;
+  flex-wrap:wrap;
+}
+.tabBtn{
+  padding: 8px 10px;
+  border-radius: 999px;
+  border:1px solid var(--line);
+  background: rgba(5,9,18,.25);
+  color: var(--txt);
+  font-weight:900;
+  cursor:pointer;
+}
+.tabActive{
+  border-color: rgba(50,255,178,.35);
+  box-shadow: 0 0 0 3px rgba(50,255,178,.10);
+}
+
+.tabPanel{ margin-top: 8px; }
+.hidden{ display:none; }
+
+.outWrap{ padding: 16px; }
+.outBox{
+  margin:0;
+  padding: 14px;
+  border-radius: 14px;
+  border:1px solid var(--line);
+  background: rgba(5,9,18,.30);
+  overflow:auto;
+  max-height: 420px;
+}

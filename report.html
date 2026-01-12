@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MOHMD • Solo Report Calculator</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div class="bgGlow"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="brandMark"></div>
+      <div>
+        <div class="brandTitle">MOHMD</div>
+        <div class="brandSub" data-i18n="app.subtitle">Whiteout Survival Whale Analyzer</div>
+      </div>
+    </div>
+
+    <div class="topbarActions">
+      <button id="langBtn" class="btn btnGhost" type="button">
+        <span class="pill" id="langPill">EN</span>
+        <span data-i18n="app.language">Language</span>
+      </button>
+
+      <a class="btn btnGhost" href="./index.html#roi" data-i18n="nav.backToRoi">Back to ROI</a>
+      <a class="btn btnPrimary" href="#calc" data-i18n="nav.goToCalc">Go to Calculator</a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="card hero">
+      <div class="heroLeft">
+        <div class="kicker" data-i18n="report.kicker">SOLO Mode</div>
+        <h1 class="h1" data-i18n="report.title">Solo Report Calculator</h1>
+        <p class="muted" data-i18n="report.desc">
+          Enter your Solo report % stats. We auto-detect your troop focus and compute a clean baseline profile to use in pack ROI.
+        </p>
+
+        <div class="heroStats">
+          <div class="stat">
+            <div class="statLabel" data-i18n="report.stat.mode">Mode</div>
+            <div class="statValue">Solo</div>
+          </div>
+          <div class="stat">
+            <div class="statLabel" data-i18n="report.stat.focus">Detected Focus</div>
+            <div class="statValue" id="focusOut">—</div>
+          </div>
+          <div class="stat">
+            <div class="statLabel" data-i18n="report.stat.source">Source</div>
+            <div class="statValue" id="sourceOut">—</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="heroRight">
+        <div class="panel">
+          <div class="panelTitle" data-i18n="report.flags.title">Conditional Buffs (ON/OFF)</div>
+
+          <div class="toggleRow">
+            <label class="toggle">
+              <input id="petSkillActive" type="checkbox" />
+              <span class="slider"></span>
+            </label>
+            <div class="toggleText">
+              <div class="toggleTitle" data-i18n="report.flags.petSkill">Pet Skill Active</div>
+              <div class="toggleHint" data-i18n="report.flags.petSkillHint">If you clicked “Use” in pets before battle</div>
+            </div>
+          </div>
+
+          <div class="toggleRow">
+            <label class="toggle">
+              <input id="foundryExpertActive" type="checkbox" />
+              <span class="slider"></span>
+            </label>
+            <div class="toggleText">
+              <div class="toggleTitle" data-i18n="report.flags.foundry">Foundry Expert Active</div>
+              <div class="toggleHint" data-i18n="report.flags.foundryHint">Only if the event activates those experts</div>
+            </div>
+          </div>
+
+          <div class="toggleRow">
+            <label class="toggle">
+              <input id="svsExpertActive" type="checkbox" />
+              <span class="slider"></span>
+            </label>
+            <div class="toggleText">
+              <div class="toggleTitle" data-i18n="report.flags.svs">SvS Expert Active</div>
+              <div class="toggleHint" data-i18n="report.flags.svsHint">Only if SvS buffs are active</div>
+            </div>
+          </div>
+
+          <div class="toggleRow">
+            <label class="toggle">
+              <input id="romulusAlwaysOn" type="checkbox" checked />
+              <span class="slider"></span>
+            </label>
+            <div class="toggleText">
+              <div class="toggleTitle" data-i18n="report.flags.romulus">Romulus Skills Always ON</div>
+              <div class="toggleHint" data-i18n="report.flags.romulusHint">Your note: always affects Solo/Rally/Defense</div>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <button id="calcBtn" class="btn btnPrimary full" type="button" data-i18n="report.actions.calc">
+            Compute Profile
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="calc" class="card">
+      <div class="cardHeader">
+        <div>
+          <div class="kicker" data-i18n="report.inputs.kicker">Inputs</div>
+          <h2 class="h2" data-i18n="report.inputs.title">Solo % Stats</h2>
+          <p class="muted" data-i18n="report.inputs.desc">
+            Enter Global Troops stats (required). Troop-type stats are optional but improve accuracy.
+          </p>
+        </div>
+      </div>
+
+      <div class="formGrid">
+        <!-- GLOBAL -->
+        <div class="formBlock">
+          <div class="formTitle" data-i18n="report.inputs.globalTitle">Global Troops (Required)</div>
+
+          <div class="grid4">
+            <div class="row">
+              <label class="label" data-i18n="report.field.atk">Troops Attack %</label>
+              <input id="gAtk" class="input" type="number" step="0.1" placeholder="0" />
+            </div>
+            <div class="row">
+              <label class="label" data-i18n="report.field.def">Troops Defense %</label>
+              <input id="gDef" class="input" type="number" step="0.1" placeholder="0" />
+            </div>
+            <div class="row">
+              <label class="label" data-i18n="report.field.leth">Troops Lethality %</label>
+              <input id="gLeth" class="input" type="number" step="0.1" placeholder="0" />
+            </div>
+            <div class="row">
+              <label class="label" data-i18n="report.field.hp">Troops Health %</label>
+              <input id="gHp" class="input" type="number" step="0.1" placeholder="0" />
+            </div>
+          </div>
+
+          <div class="mutedSmall" data-i18n="report.inputs.globalHint">
+            These are taken from your Solo report/stat screen. They already include all always-on systems.
+          </div>
+        </div>
+
+        <!-- TROOP TYPES -->
+        <div class="formBlock">
+          <div class="formTitle" data-i18n="report.inputs.typeTitle">Troop Types (Optional)</div>
+          <div class="mutedSmall" data-i18n="report.inputs.typeHint">
+            If you enter at least one troop type completely, we will detect focus from troop types.
+          </div>
+
+          <div class="typeTabs">
+            <button class="tabBtn tabActive" type="button" data-tab="inf" data-i18n="report.type.inf">Infantry</button>
+            <button class="tabBtn" type="button" data-tab="lan" data-i18n="report.type.lan">Lancer</button>
+            <button class="tabBtn" type="button" data-tab="mm" data-i18n="report.type.mm">Marksman</button>
+          </div>
+
+          <div class="tabPanel" id="tab_inf">
+            <div class="grid4">
+              <div class="row"><label class="label" data-i18n="report.field.atk">Attack %</label><input id="iAtk" class="input" type="number" step="0.1" placeholder="0" /></div>
+              <div class="row"><label class="label" data-i18n="report.field.def">Defense %</label><input id="iDef" class="input" type="number" step="0.1" placeholder="0" /></div>
+              <div class="row"><label class="label" data-i18n="report.field.leth">Lethality %</label><input id="iLeth" class="input" type="number" step="0.1" placeholder="0" /></div>
+              <div class="row"><label class="label" data-i18n="report.field.hp">Health %</label><input id="iHp" class="input" type="number" step="0.1" placeholder="0" /></div>
+            </div>
+          </div>
+
+          <div class="tabPanel hidden" id="tab_lan">
+            <div class="grid4">
+              <div class="row"><label class="label" data-i18n="report.field.atk">Attack %</label><input id="lAtk" class="input" type="number" step="0.1" placeholder="0" /></div>
+              <div class="row"><label class="label" data-i18n="report.field.def">Defense %</label><input id="lDef" class="input" type="number" step="0.1" placeholder="0" /></div>
+              <div class="row"><label class="label" data-i18n="report.field.leth">Lethality %</label><input id="lLeth" class="input" type="number" step="0.1" placeholder="0" /></div>
+              <div class="row"><label class="label" data-i18n="report.field.hp">Health %</label><input id="lHp" class="input" type="number" step="0.1" placeholder="0" /></div>
+            </div>
+          </div>
+
+          <div class="tabPanel hidden" id="tab_mm">
+            <div class="grid4">
+              <div class="row"><label class="label" data-i18n="report.field.atk">Attack %</label><input id="mAtk" class="input" type="number" step="0.1" placeholder="0" /></div>
+              <div class="row"><label class="label" data-i18n="report.field.def">Defense %</label><input id="report_mDefLbl" class="label" data-i18n="report.field.def">Defense %</label><input id="mDef" class="input" type="number" step="0.1" placeholder="0" /></div>
+              <div class="row"><label class="label" data-i18n="report.field.leth">Lethality %</label><input id="mLeth" class="input" type="number" step="0.1" placeholder="0" /></div>
+              <div class="row"><label class="label" data-i18n="report.field.hp">Health %</label><input id="mHp" class="input" type="number" step="0.1" placeholder="0" /></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" style="margin-top:14px;">
+      <div class="cardHeader">
+        <div>
+          <div class="kicker" data-i18n="report.output.kicker">Output</div>
+          <h2 class="h2" data-i18n="report.output.title">Computed Solo Profile</h2>
+          <p class="muted" data-i18n="report.output.desc">
+            This is what we’ll feed into the ROI engine next (packs → % gains).
+          </p>
+        </div>
+      </div>
+
+      <div class="outWrap">
+        <pre class="outBox" id="jsonOut">{}</pre>
+      </div>
+    </section>
+
+    <section class="footer">
+      <div class="mutedSmall" data-i18n="report.footer">
+        MOHMD • Solo calculator MVP • Next: pack → stat deltas + true report breakdown.
+      </div>
+    </section>
+  </main>
+
+  <script src="report.js"></script>
+</body>
+</html>

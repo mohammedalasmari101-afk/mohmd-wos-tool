@@ -56,6 +56,51 @@
     "table.roi": "ROI Score",
     "table.verdict": "Verdict",
 
+    "nav.backToRoi": "Back to ROI",
+  "nav.goToCalc": "Go to Calculator",
+
+  "report.kicker": "SOLO Mode",
+  "report.title": "Solo Report Calculator",
+  "report.desc": "Enter your Solo report % stats. We auto-detect your troop focus and compute a clean baseline profile to use in pack ROI.",
+  "report.stat.mode": "Mode",
+  "report.stat.focus": "Detected Focus",
+  "report.stat.source": "Source",
+
+  "report.flags.title": "Conditional Buffs (ON/OFF)",
+  "report.flags.petSkill": "Pet Skill Active",
+  "report.flags.petSkillHint": "If you clicked “Use” in pets before battle",
+  "report.flags.foundry": "Foundry Expert Active",
+  "report.flags.foundryHint": "Only if the event activates those experts",
+  "report.flags.svs": "SvS Expert Active",
+  "report.flags.svsHint": "Only if SvS buffs are active",
+  "report.flags.romulus": "Romulus Skills Always ON",
+  "report.flags.romulusHint": "Your note: always affects Solo/Rally/Defense",
+  "report.actions.calc": "Compute Profile",
+
+  "report.inputs.kicker": "Inputs",
+  "report.inputs.title": "Solo % Stats",
+  "report.inputs.desc": "Enter Global Troops stats (required). Troop-type stats are optional but improve accuracy.",
+  "report.inputs.globalTitle": "Global Troops (Required)",
+  "report.inputs.globalHint": "These are taken from your Solo report/stat screen. They already include all always-on systems.",
+  "report.inputs.typeTitle": "Troop Types (Optional)",
+  "report.inputs.typeHint": "If you enter at least one troop type completely, we will detect focus from troop types.",
+
+  "report.type.inf": "Infantry",
+  "report.type.lan": "Lancer",
+  "report.type.mm": "Marksman",
+
+  "report.field.atk": "Attack %",
+  "report.field.def": "Defense %",
+  "report.field.leth": "Lethality %",
+  "report.field.hp": "Health %",
+
+  "report.output.kicker": "Output",
+  "report.output.title": "Computed Solo Profile",
+  "report.output.desc": "This is what we’ll feed into the ROI engine next (packs → % gains).",
+
+  "report.footer": "MOHMD • Solo calculator MVP • Next: pack → stat deltas + true report breakdown.",
+
+
     "footer.note": "MOHMD • GitHub Pages MVP • Next: Expert-level math + full pack database + account import."
   },
   "ar": {
@@ -114,6 +159,51 @@
     "table.contents": "أهم المحتويات",
     "table.roi": "نقاط ROI",
     "table.verdict": "القرار",
+
+    "nav.backToRoi": "العودة للـ ROI",
+  "nav.goToCalc": "اذهب للحاسبة",
+
+  "report.kicker": "وضع SOLO",
+  "report.title": "حاسبة تقرير السولو",
+  "report.desc": "أدخل نسب تقرير السولو. نحدد التركيز تلقائياً ونبني ملف baseline نظيف لاستخدامه في تحليل العائد (ROI).",
+  "report.stat.mode": "الوضع",
+  "report.stat.focus": "التركيز المكتشف",
+  "report.stat.source": "المصدر",
+
+  "report.flags.title": "تفعيل/إيقاف (حسب الحدث)",
+  "report.flags.petSkill": "مهارة الحيوانات مفعلة",
+  "report.flags.petSkillHint": "إذا ضغطت Use قبل القتال",
+  "report.flags.foundry": "خبير الفاوندرى مفعل",
+  "report.flags.foundryHint": "فقط إذا الحدث يفعل هذه الخبراء",
+  "report.flags.svs": "خبير SvS مفعل",
+  "report.flags.svsHint": "فقط إذا بفات SvS فعالة",
+  "report.flags.romulus": "مهارات رومولوس دائماً فعالة",
+  "report.flags.romulusHint": "حسب كلامك: تؤثر دائماً على السولو/الرالي/الدفاع",
+  "report.actions.calc": "احسب الملف",
+
+  "report.inputs.kicker": "المدخلات",
+  "report.inputs.title": "نسب السولو",
+  "report.inputs.desc": "أدخل قيم Troops العامة (إلزامي). قيم أنواع القوات اختيارية لكنها أدق.",
+  "report.inputs.globalTitle": "Troops العامة (إلزامي)",
+  "report.inputs.globalHint": "هذه تُؤخذ من شاشة التقرير/الإحصائيات وتحتوي كل الأنظمة الدائمة.",
+  "report.inputs.typeTitle": "أنواع القوات (اختياري)",
+  "report.inputs.typeHint": "إذا أدخلت نوع واحد كامل، نحدد التركيز بناءً على الأنواع.",
+
+  "report.type.inf": "مشاة",
+  "report.type.lan": "رماح",
+  "report.type.mm": "رماة",
+
+  "report.field.atk": "الهجوم %",
+  "report.field.def": "الدفاع %",
+  "report.field.leth": "الفتك %",
+  "report.field.hp": "الصحة %",
+
+  "report.output.kicker": "النتيجة",
+  "report.output.title": "ملف السولو المحسوب",
+  "report.output.desc": "هذا سنغذّي به محرك ROI لاحقاً (الباقات → زيادة النسب).",
+
+  "report.footer": "MOHMD • نسخة حاسبة السولو • القادم: تحويل الباقات إلى زيادات فعلية + تفكيك التقرير الحقيقي.",
+
 
     "footer.note": "MOHMD • نسخة GitHub Pages • القادم: معادلات الخبير + قاعدة باقات كاملة + إدخال بيانات الحساب."
   }
